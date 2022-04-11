@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: document.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: auxilliary/front_cover.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: chapters/dedication.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+A level-1 auxiliary file: chapters/thanks.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: chapters/farsi_abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: auxilliary/symbols.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: chapters/first_chapter.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: chapters/second_chapter.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: chapters/third_chapter.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: chapters/final_chapter.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+The style file: ieeetr-fa.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 30 items.
+A level-1 auxiliary file: chapters/english_abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: auxilliary/back_cover.aux
+Database file #1: references.bib
+-- ieeetr-fa.bst version 0.6 (2011/07/01) 
+-- This is a BibTeX style for XePersian: http://www.parsilatex.com
+
+Done.
+You've used 14 entries,
+            2349 wiz_defined-function locations,
+            721 strings with 8040 characters,
+and the built_in function-call counts, 4631 in all, are:
+= -- 426
+> -- 152
+< -- 1
++ -- 56
+- -- 42
+* -- 303
+:= -- 577
+add.period$ -- 17
+call.type$ -- 14
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 215
+empty$ -- 382
+format.name$ -- 42
+if$ -- 1265
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 137
+newline$ -- 101
+num.names$ -- 16
+pop$ -- 40
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 157
+stack$ -- 0
+substring$ -- 297
+swap$ -- 97
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 4
+type$ -- 0
+warning$ -- 0
+while$ -- 39
+width$ -- 16
+write$ -- 185

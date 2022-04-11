@@ -1,0 +1,213 @@
+\chapter{محیط ها}
+در این بخش دستورات مربوط به محیط‌های معروف شامل جداول و تصاویر، معادلات و قضایا و محیط برنامه را معرفی می‌کنیم.  
+
+\section{جداول و تصاویر} 
+برای درج یک جدول به صورت زیر عمل می کنیم. توجه داشته باشید که چون به زبان فارسی انتخاب شده است، ستون‌ها از راست به چپ نوشته می‌شوند.
+\begin{latin} 
+	\begin{verbatim}
+		\begin{table}
+			\centering
+			\caption[short text]{text}
+			\label{key}
+			\begin{tabular}[pos]{cols}
+				content...
+			\end{tabular}
+		\end{table}
+	\end{verbatim}
+\end{latin}
+
+برای درج کردن یک تصویر از دستورات زیر استفاده کنید. توجه داشته باشید که تصویر مربوطه باید حتما درون فولدر 
+\lr{images} 
+باشد. 
+\begin{latin} 
+	\begin{verbatim}
+		\begin{figure}[placement]
+			\includegraphics[scale = <ratio>]{imagefile}
+			\caption{text}
+			\label{key}
+		\end{figure}
+    \end{verbatim}
+\end{latin}
+
+در صورت لزوم نیز می‌توانید فولدر‌های بیشتری را درون این فولدر قرار دهید تا اگر تعدادی تصویر در رابطه با یک امر دارید، بدون سردرگمی آن‌ها دسته‌بندی کنید. برای مثال فرض کنید تعداد دو تصویر با فرمت 
+\lr{.png} 
+و با نام های 
+\lr{sim1.png} 
+و 
+\lr{sim2.png} 
+ در رابطه‌ با یک شبیه‌سازی در اختیار داریم و آن‌ها را درون فولدر 
+\lr{sim}
+قرار داده‌ایم که خود نیز درون فولدر 
+\lr{images} 
+می‌باشد. در چنین شرایطی به صورت زیر عمل می کنیم. 
+\begin{latin} 
+	\begin{verbatim}
+			\begin{figure}[placement]
+			\centering
+			\subfloat[][subcaption1]
+			{\includegraphics[scale=0.5]{{../images/sim/sim1.png}}
+				\label{fig1:subfig1}}
+			\hspace{1cm}
+			\subfloat[][subcaption2]
+			{\includegraphics[scale=0.5]{{../images/sim/sim2.png}}
+				\label{fig1:subfig2}}
+			\caption[short text]{text}
+			\label{fig1} 
+		\end{figure}
+	\end{verbatim}
+\end{latin}  
+برای مثال می‌توانید یک نمونه تصویر شامل دو زیر--تصویر را در شکل 
+~\ref{libraries} 
+ببینید. 
+	\begin{figure}[!ht]
+	\centering
+	\subfloat[][]
+	{\includegraphics[scale=0.6]{{../images/library/numpy.png}}
+		\label{fig:np}}
+	\vspace{1cm}
+	\subfloat[][]
+	{\includegraphics[scale=0.6]{{../images/library/pandas.png}}
+		\label{fig1:pd}}
+	\caption{لوگوی دو کتابخانه‌ی معروف در پایتون (الف) 
+	\lr{numpy} 
+	 و (ب) 
+	 \lr{pandas}  
+}
+	\label{libraries} 
+\end{figure}
+
+\section{معادلات} 
+برای درج یک معادله بطور معمول از دستور زیر استفاده کنید.برای ارجاع معادله در متن نیز دستور 
+
+	\begin{latin}
+	\noindent
+	 \verb*|\eqref{<eq:key>}|
+	\end{latin}
+
+ را به کار ببرید. 
+\begin{latin}
+	\begin{verbatim}
+			\begin{equation}\label{eq:key}
+			content...
+		\end{equation}
+	\end{verbatim}
+\end{latin} 
+
+\section{قضایا} 
+
+برای تعریف‌ها، گزاره‌ها و غیره دستورات زیر بسته به نوع محیط قابل استفاده هستند. برای مثال محیط تعریف به صورت زیر است. 
+\begin{latin} 
+	\begin{verbatim}
+		\begin{definition}[\textbf{short tex}] \label{def:key}
+			contents... 
+		\end{definition}
+	\end{verbatim}
+\end{latin}
+برای ارجاع تعریف در متن دستور زیر را به کار ببرید.
+\begin{flushleft}
+	\begin{latin}
+		\verb|\ref{<def:key>}|
+	\end{latin}
+\end{flushleft}
+
+برای سایر موارد طبق جدول 
+~\ref{tab:key:1}
+می‌توانید کلمه‌ی کلیدی را تغییر دهید. یک نمونه مثال از نحوه‌ی چاپ این محیط را می‌توانید در تعریف 
+~\ref{def:non-incr func} 
+ببینید. 
+\begin{table}[h]
+	\centering
+	\caption{محیط‌های مربوط به انواع تعاریف}
+	\label{tab:key:1}
+	\begin{tabular}{|c|c|}
+		\hline 
+		نوع تعریف & کلمه‌ی کلیدی دستور
+		\\ \hline 
+		تعریف & 
+		\lr{definition}
+		\\ \hline 
+		قضیه &
+		\lr{theorem}
+		 \\ \hline 
+		 گزاره & 
+		 \lr{proposition}
+		 \\ \hline 
+		 نتیجه &
+		 \lr{corollary}
+         \\ \hline
+         لم &
+         \lr{lemma}
+         \\ \hline
+		 مثال &
+		  \lr{example}
+		 \\ \hline
+		  اثبات &
+		  \lr{proofs}
+		 \\ \hline
+   \end{tabular}
+\end{table}
+
+\begin{definition}[\textbf{تابع غیر--افزایشی}] \label{def:non-incr func}
+	تابع 
+	$f: D_f \to D_R$ 
+	غیر--افزایشی است، اگر  برای 
+	$x_1, x_2 \in D_f $
+	رابطه‌ی 
+	~\eqref{eq:non-incr} 
+	برقرار باشد. 
+	\begin{equation}\label{eq:non-incr}
+			x_1 \leq x_2 \in D_f \longrightarrow f(x_1) \geq f(x_2)
+	\end{equation}
+\end{definition}
+
+\section{برنامه‌ها} 
+برای قرار دادن دستورات یک برنامه ابتدا یک فایل با فرمت آن زبان بسازید و فایل مربوطه را در فولدر 
+\lr{programs} 
+قرار دهید، سپس از دستور زیر استفاده کنید و برای ارجاع برنامه در متن نیز دستور 
+
+\begin{latin}
+	\noindent
+	\verb|\ref{<prog:key>}|
+\end{latin}
+را به کار ببرید.  در مثال 
+~\pref{exam: print}
+می‌توانید یک محیط مثال حاوی یک کد پایتون را در برنامه‌ی مشاهده کنید. 
+\begin{latin}
+	\begin{verbatim}
+			\begin{center}
+			\begin{program}[pos]
+				\begin{latin}
+					\lstinputlisting{program.py}
+				\end{latin}
+				\caption{caption text}
+				\label{prog:key}
+			\end{program}
+		\end{center}
+	\end{verbatim}
+\end{latin}
+
+\begin{example}[\textbf{چاپ متن در زبان پایتون}] \label{exam: print}
+	دستور 
+	\lr{print}
+	برای چاپ یک رشته کاراکتر و یا متغیر به کار می‌رود. برای مثال برنامه‌ی 
+	~\ref{prog:1} 
+	را ببینید. 
+	\begin{center}
+	\begin{program}[h]
+		\begin{latin}
+			\lstinputlisting{program.py}
+		\end{latin}
+		\caption{مثال برای چاپ متن 
+		\lr{hello world}}
+		\label{prog:1}
+	\end{program}
+\end{center}
+\end{example}
+توجه داشته باشید بهتر است برنامه در فصلی جداگانه به نام 
+پیوست قرار گیرند. برای توضیحات مربوطه فصل‌های 
+~\ref{create appendix} 
+و
+~\ref{option appendix}
+در پیوست را مطالعه برفرمایید. 
+
+ 

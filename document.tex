@@ -1,0 +1,121 @@
+\documentclass[a4paper, 14pt]{extreport}
+%--------------------------------%
+% فایل حاوی فراخوانی بسته‌ها و تعریف دستورات و تنظیمات لازم 
+\input{auxilliary/commands}
+%--------------------------------%
+% فایل حاوی پانویس‌ها و اختصارات 
+\input{auxilliary/foots}
+\begin{document}
+%--------------------------------%
+%--------------------------------%
+% صفحه‌ عنوان فارسی
+\input{auxilliary/front_cover}
+%--------------------------------%
+% تغییر شماره‌دهی صفحات به فرمت آ، ب، ج 
+\pagenumbering{alph}
+%--------------------------------%
+%فهرست مطالب
+	\begin{center}
+		\tableofcontents
+	\end{center}
+%--------------------------------%
+%تشکر و قدردانی
+	\include{chapters/dedication}
+	\clearpage
+%--------------------------------%
+%تقدیم 
+	\input{chapters/thanks}
+	\clearpage
+%--------------------------------%
+%چکیده‌ی فارسی 
+	\input{chapters/farsi_abstract}  
+	\clearpage
+%--------------------------------%  
+%فهرست علائم اختصاری
+		\input{auxilliary/symbols}
+		\clearpage
+%--------------------------------%  
+%فهرست جداول 
+		\begin{center}
+			\addcontentsline{toc}{chapter}{فهرست جدول ها}
+			\listoftables			
+		\end{center}
+		\clearpage
+%--------------------------------%  
+%فهرست شکل‌ها 
+		\begin{center}
+			\addcontentsline{toc}{chapter}{فهرست شکل ها}
+			\listoffigures
+		\end{center}
+		\clearpage
+%--------------------------------%  
+%دستورات تغییر حرف آ به الف
+	\makeatletter
+    \bidi@patchcmd{\@Abjad}{آ}{الف}
+    {\typeout{Succeeded in changing `آ` into `الف`}}
+    {\typeout{Failed in changing `آ` into `الف`}}
+    \makeatother
+    \PersianAlphs
+%--------------------------------%  
+%دستورات مربوط به هدر‌ها 
+% سمت راست: شماره فصل. تتیر فصل 
+% سمت چپ: بخش~شماره بخش. تیتر بخش 
+    \pagestyle{fancy}
+    \fancyhead[R]{\selectfont \leftmark}
+    \fancyhead[L]{\selectfont {بخش} \rightmark}
+    \cfoot{\thepage}
+    % تغییر شماره‌دهی صفحات از الفبا به عدد 
+    \pagenumbering{arabic}	
+%--------------------------------%  
+ % فصل اول 
+\include{chapters/first_chapter}
+%--------------------------------%
+% فصل دوم 
+\include{chapters/second_chapter}
+%--------------------------------%
+% فصل سوم
+\include{chapters/third_chapter}
+%--------------------------------%
+% فصل چهارم 
+\include{chapters/final_chapter}
+%--------------------------------%
+% پیوست‌ها 
+\include{chapters/appendices}
+%--------------------------------%
+% تغییر استایل هدر‌ها به حالت بدون هدر 
+\pagestyle{plain}
+% تغییر فاصله‌ی بین خطوط 
+\linespread{1}
+% انتخاب استایل فهرست مراجع 
+\bibliographystyle{ieeetr-fa} 
+% سایز فونت نرمال 
+\normalsize
+% چاپ فهرست مراجع 
+\printbib
+\clearpage
+%--------------------------------%
+% تغییر فاصله‌ی بین خطوط 
+\linespread{1.5}
+% کوچکتر کردن سایز فونت 
+\small
+% چاپ واژه‌نامه 
+\printglossary
+% چاپ فهرست اختصارات 
+\printacronyms
+\clearpage
+% سایز فونت نرمال 
+\normalsize
+%--------------------------------%
+% تغییر حالت هدر و فوتر به حالت بدون هدر و بدون شماره 
+\thispagestyle{empty}
+% تک ستونه کردن متن 
+\onecolumn
+% چکیده‌ی انگلیسی 
+\include{chapters/english_abstract}
+%--------------------------------%
+% صفحه‌ عنوان انگلیسی 
+\include{auxilliary/back_cover}
+%--------------------------------%
+%--------------------------------%
+\end{document}
+

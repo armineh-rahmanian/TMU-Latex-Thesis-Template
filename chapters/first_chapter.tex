@@ -1,0 +1,220 @@
+\chapter{مقدمه}
+جهت تسهیل استفاده از این تمپلیت لازم است، ابتدا ساختار کلی این فایل را مورد بررسی قرار دهیم. در فولدر اصلی با فایل‌های زیر مواجه می‌شویم. 
+\begin{contract}
+	\item \textbf{\lr{:auxilliary}}
+	فایل‌های کمکی که شامل بخش‌های زیرند: 
+	\begin{itemize}
+		\item \textbf{\lr{:commands.tex}}
+		این فایل حاوی تمامی بسته‌های فراخوانی شده، تنظیمات و دستورات تعریف شده می باشد. 
+		\item \textbf{\lr{:foots.tex}}
+		این فایل نیز جهت تعریف کردن پانویس‌ها و کلمات اختصاری تعبیه شده‌است. 
+		\item \textbf{\lr{:symbols.tex}}
+		این فایل حاوی تعریف‌های مربوط به علائم اختصاری و نماد‌ها می‌باشد. 
+		\item \textbf{\lr{:front\_cover.tex}} 
+		صفحه‌ی اول (شامل بسّم اللّه الرحمن الرحیم) و صفحه‌ی عنوان فارسی در این بخش قرار دارند. دانشجو باید وارد این فایل شده و در محل مربوطه عنوان پایان‌نامه، نام و نام خانوادگی دانشجو، استاد راهنما و بعلاوه تاریخ درج پایان نامه را وارد کند. 
+		\item  \textbf{\lr{:back\_cover.tex}}
+		صفحه‌ی عنوان لاتین در این فایل قرار دارد. مجدداً مشابه بالا باید تغییرات لازم به لاتین درج شود. 
+	\end{itemize}
+	\item \textbf{\lr{:chapters} }
+	فصول اصلی پایان‌نامه که در اینجا تعداد چهار فصل در نظر گرفته شده‌است. بسته به نیاز این فصول متغیرند. این فولدر حاوی فایل‌های زیر می‌باشد. 
+	\begin{itemize}
+		\item \textbf{\lr{:dedication.tex}} 
+		در این فایل متن تقدیم نوشته می‌شود. 
+		\item \textbf{\lr{:thanks.tex}} 
+		در این فایل متن تشکر و قدردانی نوشته می‌شود. 
+		\item \textbf{\lr{:farsi\_abstract.tex}} 
+		چکیده‌ی فارسی در این فایل نوشته می‌شود. 
+		\item \textbf{\lr{:first\_chapter.tex}} 
+		فصل اول
+		\item \textbf{\lr{:second\_chapter.tex}} 
+		فصل دوم
+		\item \textbf{\lr{:third\_chapter.tex}} 
+		فصل سوم
+		\item \textbf{\lr{:final\_chapter.tex}} 
+		فصل چهارم 
+		\item \textbf{\lr{:english\_abstract.tex}}
+		چکیده‌ی لاتین در این فایل نوشته می‌شود. 
+	\end{itemize}
+	\item \textbf{\lr{:images}}
+	تمامی تصاویر مورد استفاده را در این فولدر قرار می‌دهیم. 
+	\item \textbf{\lr{:document.tex}}
+	 فایل اصلی که تمامی فولدر ها شامل فولدر فایل‌های کمکی، هر یک از فصول به ترتیب، واژه‌نامه و فهرست اختصارت و فهرست مراجع در آن فراخوانی شده‌اند. 
+	\item \textbf{\lr{:references.bib}}
+	این فایل حاوی تمامی مراجع فراخوانی شده در متن پایان‌نامه است. 
+\end{contract}
+
+توجه داشته باشید که برای فراخواندن هر کدام از فایل‌ها با فرمت 
+\lr{.tex} 
+در 
+\lr{preamble}
+از دستور 
+\begin{latin} 
+\noindent\verb*|\input{<name.tex>}|
+\end{latin}
+و برای سایر فصول به همراه پیوست از دستور 
+\begin{latin} 
+\noindent\verb*|\include{<name.tex>}|
+\end{latin}
+استفاده شده است. برای حذف/اضافه هر گونه فایل با فرمت 
+\lr{.tex} 
+از این پروژه می‌توان از دستورات بالا در فایل اصلی یعنی 
+\lr{document.tex}
+استفاده کرد.  برای ایجاد و چاپ فهرست منابع، واژه‌نامه و فهرست اختصارات نیز به ترتیب از دستورات زیر استفاده شده است. 
+\begin{flushleft}
+	\begin{latin} 
+		\begin{verbatim}
+			\printbib
+			\printglossary
+			\printacronyms
+		\end{verbatim}
+	\end{latin}
+\end{flushleft}
+
+
+
+\section{تنظیمات برنامه}
+قبل از کامپایل کردن برنامه حتما توجه داشته باشید که باید موتور نرم‌‌افزار
+\lr{XeLatex} 
+انتخاب شود. همچنین لازم به ذکر است که این قالب در نرم‌افزار 
+\lr{TexStudio} 
+نوشته شده است. پیشنهاد می‌کنم به دلیل حفظ راست--چین بودن متون فارسی در بخش ادیتور و سهولت کار کردن با آن، شما هم از این نرم‌افزار رایگان که هر سه سیستم عامل 
+\lr{Windows, Linux, macOS} 
+را پیشتیبانی می کند، استفاده کنید.البته قطعا حق انتخاب با شماست.  برای دریافت این نرم‌افزار به سایت زیر بروید. 
+\begin{latin}
+	\noindent
+	\href{https://www.texstudio.org/}{TeXstudio}
+\end{latin}
+اگر از  نرم‌افزار
+\lr{TexStudio} 
+ استفاده می‌کنید، برای انتخاب موتور 
+\lr{XeLatex} 
+ابتدا وارد منوی 
+\lr{Options} 
+شده و بخش 
+\lr{Configure TeXstudio} 
+را انتخاب کنید. سپس در پجره‌ی باز شده وارد قسمت 
+\lr{Build} 
+شده و در بخش 
+\lr{Meta Commands}
+گزینه‌ی
+\lr{Default Compiler} 
+را روی 
+\lr{XeLatex} 
+قرار دهید و در نهایت کلید 
+\lr{Save} 
+را انتخاب کنید. برای استفاده از این قالب فرض شده است که به دستورات ابتدایی
+\lr{\LaTeX}
+آشنایی دارید. در غیر صورت حتما ابتدا به یادگیری 
+\lr{\LaTeX}
+بپردازید. برای یادگیری 
+\lr{\LaTeX}
+مراجع بسیار زیادی وجود دارد، اما برای شروع می‌توانید سایت های زیر مراجعه کرده و آموزش‌ها را مطالعه کنید. 
+
+\begin{latin}
+	\noindent
+	\href{https://www.overleaf.com/learn}{Overleaf}\\
+    \href{https://en.wikibooks.org/wiki/LaTeX}{Wikibooks}\\
+	\href{http://parsilatex.com}{ParsiLatex}
+\end{latin}
+یک مرجع بسیار مناسب به نام 
+\textit{مقدمه‌ای نه چندان کوتاه بر لاتک}
+برای یادگیری لاتک نوشته‌ی 
+\linebreak
+\lr{Tobias Oetiker} 
+به ترجمه‌ی مهدی امید علی هم در سایت 
+ \href{https://www.ctan.org/tex-archive/info/lshort/persian}{Ctan}
+ قابل دریافت می‌باشد. 
+
+
+
+
+
+\section{متن تقدیم، تشکر و چکیده}
+برای نوشتن متن تقدیم و تشکر و چکیده وارد فولدر 
+\lr{chapters} 
+بشوید و در فایل مربوطه متن مورد نظر را قرار دهید. 
+
+\section{وارد کردن نماد ریاضی در فهرست  نماد ها}
+برای وارد کردن یک نماد ریاضی در فهرست علائم و نشانه ها ابتدا وارد فولدر 
+\lr{auxilliary} 
+شده و فایل 
+\lr{foots.tex} 
+را باز کرده و از دستور زیر استفاده می کنیم. 
+\begin{latin}
+	\noindent
+	\verb*|\persiangloss{<name>}{<symbol>}|
+\end{latin}
+در بخش 
+\lr{<name>}
+نام نماد و در بخش 
+\lr{<symbol>} 
+باید نماد ریاضی را در میان 
+\verb|$ $| 
+قرار‍~دهیم. برای مثال اگر بخواهیم 
+$\lambda$ 
+را به عنوان نماد مقدار~ویژه معرفی کنیم در بخش 
+\lr{<name>}
+می‌نویسیم مقدار ویژه و در بخش 
+\lr{<symbol>} 
+قرار می‌دهیم
+\verb|$\lambda$|.
+
+\section{فونت و سایز فونت‌های مورد استفاده}
+فونت مورد استفاده در تیتر‌ها و متن اصلی در جدول 
+\ref{fonts description} 
+درج شده‌اند. در صورت نیاز به فونت‌های دیگر باید مراحلی که در ادامه آن را بیان می‌کنیم، طی شود. ابتدا وارد فولد 
+\lr{auxilliary}
+شده، فایل 
+\lr{commands.tex} 
+را باز کرده و نام فونت‌های دیگر را در قسمت مربوطه (پس از فراخوانی بسته‌ی ژی~پرشین) تایپ کنید. این فونت‌ها باید حتما روی کامپیوتر شما نصب شده باشد. ترجیحاً فایل 
+\lr{.ttf} 
+فونت‌ها را نیز در فولدر اصلی کپی و پیست کنید. منظور از محل ذکر شده دستورات زیر است. 
+\begin{latin} 
+	\begin{verbatim}
+		\settextfont[BoldFont={IRNazaninBold.ttf},
+		ItalicFont={IRNazaninIranic.ttf}]{IRNazanin.ttf}
+		\defpersianfont\Btitr{B Titr.ttf}
+	\end{verbatim}
+\end{latin} 
+همچنین می توانید برای استفاده از فونت بی‌تیتر در هر قسمت از متن از دستور زیر استفاده کنید. 
+\begin{latin}
+	\begin{verbatim}
+		{\Btitr{<text>}}
+	\end{verbatim}
+\end{latin}
+ 
+\begin{table}[h]
+	\centering
+	\caption[فونت‌های استفاده شده و توضیحات آن]
+	{فونت‌های استفاده شده و توضیحات آن. مورد سوم و چهارم باید توسط نویسنده‌ در صورت لزوم اعمال شود.}
+	\label{fonts description}
+	\begin{tabular}{|m{5cm}|m{8cm}|}
+		 \hline
+		 نام فونت 
+		 &
+		 محل استفاده 
+		 \\ \hline
+		\lr{B Titr.ttf}
+		 & 
+		 تیتر ها 
+		 
+		 \\ \hline
+	    \lr{IRNazanin.ttf}
+		& 
+		متن اصلی 
+	    \\ \hline
+		
+		\lr{IRNazaninBold.ttf}
+		& 
+		کلمات کلیدی، نام قضایا، تعریف‌ها و مثال‌ها، لیست‌های شماره‌دار و سایر موارد مورد نیاز 
+	     \\ \hline
+		\lr{IRNazaninIranic.ttf}
+		&
+		استفاده از یک اصطلاح و لغت خاص در اولین بار 
+		\\ \hline
+	\end{tabular} 
+\end{table}
+
+
+
+

@@ -1,0 +1,167 @@
+\chapter{ارجاع‌دهی}
+در این قسمت مروری روی ارجاع‌دهی معادلات، تصاویر، جداول، برنامه ها، پانویس‌ها و در نهایت مقالات علمی خواهیم داشت. 
+\section{ارجاع‌دهی محیط‌های گوناگون}
+همان طور که پیش‌تر هم ذکر شد، برای ارجاع‌دهی هر محیطی غیر از معادلات از دستور
+\begin{latin}
+	\noindent
+	\verb*|\ref{<label>}|
+\end{latin}
+و برای معادلات از دستور 
+\begin{latin}
+	\noindent
+	\verb*|\eqref{<label>}|
+\end{latin}
+استفاده می‌کنیم. اگر هم بخواهیم محیط‌هایی غیر از معادلات درون زوج پرانتز در متن ظاهر شود، از دستور زیر استفاده کنید.
+\begin{latin}
+	\noindent
+	\verb*|\pref{<label>}|
+\end{latin}
+
+
+\section{ارجاع‌دهی متون علمی} 
+برای این امر ابتدا باید متن مورد نظر را در فایل 
+\lr{references.bib} 
+که در فولدر اصلی قرار دارد را درج کنیم. از انجایی که مثال‌های متنوعی برای درج مقالات لاتین در اینترنت وجود دارد به درج یک رساله دکترا و پایان‌نامه‌ی که هر دو به زبان فارسی نوشته شده‌اند، می‌پردازیم. برای ارجاع‌دهی رساله‌ی دکتر از دستورات زیر استفاده کنید. اگر بخواهید یک پایان‌نامه‌ی فارسی را ارجاع دهید به جای 
+\lr{@phdthesis}
+از 
+\lr{@mastersthesis}
+استفاده کنید. 
+
+
+\begin{latin}
+	\begin{verbatim}
+		@phdthesis{LabelDist,
+			title =  {<title>},  
+			author = {<name>},
+			school = {<university>}, 
+			year = {<year>}, 
+			language = {Persian}
+		}
+	\end{verbatim}
+\end{latin}
+حال با توجه به نامی که برای آن متن علمی در نظر گرفته‌اید به آسانی با دستور 
+
+\begin{latin}
+	\noindent
+	\verb*|\cite{<label>}| 
+\end{latin}
+
+آن را ارجاع دهید. برای مثال با توجه به نام‌های در نظر گرفته شده برای 
+مقالات 
+~\cite{MultipleAttitude, LogicConstraints, EventMatching} 
+از دستور 
+\begin{latin} 
+	\noindent
+	\verb|~\cite{EventMatching, MultipleAttitude, LogicConstraints}|
+\end{latin} 
+استفاده می‌کنیم. توجه داشته باشید که برای ظاهر شدن مراجع در متن  باید مراحل زیر را طی کنید. 
+	\begin{latin}
+		\noindent
+		XeLatex \\
+		bibtex (or F8 key)\\
+		XeLatex\\
+		XeLatex\\
+	\end{latin}
+برای مثال می‌توانیم چند مقاله‌ی ژورنالی 
+~\cite{LMIController, watts1998collective, RobustMPC, Nematzadeh, RecommenderSystems}، 
+چند مقاله‌ی کنفرانسی
+~\cite{BiasedAntagonism, MultipleAttitude}، 
+یک نمونه رساله‌ی دکترا 
+~\cite{nematThesis}،
+پایان‌نامه‌ی کارشناسی ارشد 
+~\cite{hosseiniThesis}، 
+بخشی از یک کتاب 
+~\cite{bullo2018lectures}،
+یک صفحه‌ی آنلاین 
+~\cite{PewResearchCenter2017}
+و یک بسته‌ در پایتون 
+~\cite{NetworkX} 
+را ارجاع دهیم.  
+
+\section{پانویس‌ها و فهرست اختصارات}
+برای ایجاد پانویس یا کلمه‌ی اختصاری و درنهایت ایجاد واژه‌نامه‌ی انگلیسی به فارسی و فارسی به انگلیسی و در نهایت فهرست کلمات اختصاری باید مراحلی که در ادامه بیان می‌شوند را طی کنید. ابتدا وارد فولدر 
+\lr{auxilliary} 
+شده و فایل 
+\lr{foots.tex} 
+را باز کنید. برای ایجاد کلمه‌ی در پانویس (فارسی در متن یا به صورت اختصاری) قبل از فراخوانی آن، باید ابتدا آن را معرفی کنیم. برای معرفی یک کلمه که بعدا در واژه‌نامه نیز درج خواهد شد، دستور زیر را به کار ببرید. 
+	\begin{latin}
+		\noindent
+		\verb|\newword{arg1}{arg2}{arg3}{arg4}|
+	\end{latin}
+
+برای معرفی یک کلمه به صورت اختصاری نیز از دستور زیر استفاده کنید. 
+\begin{latin}
+	\noindent
+	\verb|\newacronym{label}{abbrv}{long}| 
+\end{latin}
+
+و سپس برای بکارگیری آن‌ها در متن می‌توانید از دستورات زیر استفاده کنید. 
+
+\begin{latin}
+	\noindent
+	\verb|\glspl{<label>}| \\ 
+	\verb|\gls{<label>}| \\
+	\verb|\gls*{<label>}| 
+\end{latin}
+
+توجه داشته باشید که مورد اول تنها برای پانویس به کار می‌رود (برای کلمه‌ی اختصاری از آن استفاده نکنید.) برای مثال این دستور را برای نمایش به صورت جمع یک پانویس مانند
+\glspl{non-incr-func}
+ و نمایش به صورت مفرد یک پانویس مانند
+\gls{non-decr-func} 
+و نمایش یک کلمه‌ی اختصاری مانند
+\gls{PID}
+بکار می‌بریم. برای چاپ این واژه‌ها در واژه‌نامه و فهرست اختصارات باید مراحل زیر را طی کنید. 
+\begin{latin}
+	\noindent
+	XeLatex \\
+	Xindy \\
+	XeLatex\\
+	XeLatex\\
+\end{latin}
+توجه داشته باشید که برای اجرای 
+\lr{xindy}
+لازم است ابتدا دستور
+
+\begin{latin}
+	\noindent
+	\footnotesize
+	\begin{verbatim}
+		xindy -L persian-variant1 -C utf8 -I xindy -M %.xdy -t %.glg -o %.gls %.glo | 
+		xindy -L persian-variant1 -C utf8 -I xindy -M %.xdy -t %.blg -o %.bls %.blo |
+		xindy -L english -C utf8 -I xindy -M %.xdy -t %.alg -o %.acr %.acn
+	\end{verbatim}
+\end{latin}
+\normalsize
+را در تنظیمات برنامه‌ وارد کنید. اگر از نرم افزار 
+\lr{TeXstudio}
+استفاده می‌کنید، ابتدا وارد 
+\lr{Options}
+شده، بخش 
+\lr{Configure TeXstudio...}
+را انتخاب کنید. در پنجره‌ی باز شده بخش 
+\lr{Build}
+را انتخاب کرده و در قسمت 
+\lr{User Commands} 
+با انتخاب نام بصورت 
+\lr{Xindy2:Xindy2} 
+عبارات ذکر شده در بالا را کپی و پیست کنید. در نهایت کلید 
+\lr{Save} 
+را بزنید. به راحتی از منوی 
+\lr{Tools} 
+و قسمت 
+\lr{user} 
+می توانید 
+\lr{Xindy2:Xindy2} 
+را انتخاب کنید. برای توضیحات تکمیلی وبسایت های 
+\linebreak
+	\href{https://www.overleaf.com/learn/latex/Glossaries}
+	{واژه‌نامه در 
+	\lr{overleaf}} 
+	و 
+	\href{https://en.wikibooks.org/wiki/LaTeX/Glossary} 
+	{واژه‌نامه در 
+		\lr{wikibooks}}  
+	و حتما 
+	\href{http://www.parsilatex.com/wiki/%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C_%D8%A7%DB%8C%D8%AC%D8%A7%D8%AF_%D9%88%D8%A7%DA%98%D9%87%E2%80%8C%D9%86%D8%A7%D9%85%D9%87}{واژه‌نامه در زی پرشین}
+را مطالعه کنید. 
+

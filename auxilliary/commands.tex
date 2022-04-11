@@ -1,0 +1,364 @@
+% بسته‌های مورد نیاز
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage[chapter]{algorithm}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{xhfill}
+\usepackage{listings}
+\usepackage{DejaVuSansMono}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{tablefootnote}
+%بسته‌ی پیوست و تنظیمات لازم آن
+\usepackage[toc]{appendix}
+\renewcommand{\appendixname}{پیوست}
+\renewcommand{\appendixtocname}{پیوست‌ها}
+%بسته‌ی لازم برای تنظیم حاشیه‌های صفحات
+\usepackage{geometry}
+% setting the the margins of the paper 
+% inner and outer are different for right to left writings 
+% en inner 2/5  + 0/5 gutter cm ~ fa outer 2/5 cm 
+% en outer 2/5 cm ~ fa inner 3 cm 
+\geometry{
+	a4paper,
+	inner = 2.5cm,
+	top = 2.5cm,
+	bottom = 2cm, 
+	outer = 3cm, 
+	footnotesep = 1cm, 
+	headheight = 1.27cm
+}
+%-----------------------%
+%Acronyms list and Gloosaries list commands%
+
+%%% وارد کردن بسته‌های مورد نیاز
+% بسته ای برای رنگی کردن لینک ها و فعال سازی لینک ها در یک نوشتار، بسته hyperref باید جزو آخرین بسته‌هایی باشد که فراخوانی می‌شود. 
+\usepackage{hyperref}
+
+% بسته‌ای برای وارد کردن واژه نامه در متن، این بسته باید بعد از hyperref حتما صدا زده شود. 
+\usepackage[xindy,acronym,nonumberlist=true]{glossaries}
+
+% در مورد تقدم و تاخر وارد کردن بسته ها تنها باید به چند نکته دقت کرد:
+% الف) بسته xepersian حتما حتما باید آخرین بسته ای باشد که فراخوانی می شود
+% ب) بسته hyperref جزو آخرین بسته هایی باید باشد که فراخوانی می شود.
+% ج) بسته glossaries حتما باید بعد از hyperref فراخوانی شود. 
+
+\usepackage{scrextend}
+\usepackage[perpagefootnote = on]{xepersian}
+\settextfont[BoldFont={IRNazaninBold.ttf},ItalicFont={IRNazaninIranic.ttf}]{IRNazanin.ttf}
+\defpersianfont\Btitr{B Titr.ttf}
+
+
+%\makeatletter
+%\bidi@patchcmd{\@Abjad}{آ}{الف}
+%{\typeout{Succeeded in changing `آ` into `الف`}}
+%{\typeout{Failed in changing `آ` into `الف`}}
+%\makeatother
+%\PersianAlphs
+
+%\changefontsizes[14pt]{15pt}
+%%%%%% ============================================================================================================
+
+%%% تنظیمات مربوط به بسته  glossaries
+%%% تعریف استایل برای واژه نامه فارسی به انگلیسی، در این استایل واژه‌های فارسی در سمت راست و واژه‌های انگلیسی در سمت چپ خواهند آمد. از حالت گروه ‌بندی استفاده می‌کنیم، 
+%%% یعنی واژه‌ها در گروه‌هایی به ترتیب حروف الفبا مرتب می‌شوند، مثلا:
+%%% الف
+%%% افتصاد ................................... Economy
+%%% اشکال ........................................ Failure
+%%% ش
+%%% شبکه ...................................... Network
+\newglossarystyle{myFaToEn}{%
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glsgroupskip}{\vskip 10mm}
+	\renewcommand*{\glsgroupheading}[1]{\subsection*{\glsgetgrouptitle{##1}}}
+	\renewcommand*{\glossentry}[2]{\noindent\glsentryname{##1}\dotfill\space \glsentrytext{##1}
+		
+	}
+}
+
+%% % تعریف استایل برای واژه نامه انگلیسی به فارسی، در این استایل واژه‌های فارسی در سمت راست و واژه‌های انگلیسی در سمت چپ خواهند آمد. از حالت گروه ‌بندی استفاده می‌کنیم، 
+%% % یعنی واژه‌ها در گروه‌هایی به ترتیب حروف الفبا مرتب می‌شوند، مثلا:
+%% % E
+%%% Economy ............................... اقتصاد
+%% % F
+%% % Failure................................... اشکال
+%% %N
+%% % Network ................................. شبکه
+
+\newglossarystyle{myEntoFa}{%
+	%%% این دستور در حقیقت عملیات گروه‌بندی را انجام می‌دهد. بدین صورت که واژه‌ها در بخش‌های جداگانه گروه‌بندی می‌شوند، 
+	%%% عنوان بخش همان نام حرفی است که هر واژه در آن گروه با آن شروع شده است. 
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glsgroupskip}{\vskip 10mm}
+	\renewcommand*{\glsgroupheading}[1]{\begin{LTR} \subsection*{\glsgetgrouptitle{##1}} \end{LTR}}
+	%%% در این دستور نحوه نمایش واژه‌ها می‌آید. در این جا واژه فارسی در سمت راست و واژه انگلیسی در سمت چپ قرار داده شده است، و بین آن با نقطه پر می‌شود. 
+	\renewcommand*{\glossentry}[2]{\noindent\glsentrytext{##1}\dotfill\space \glsentryname{##1}
+		
+	}
+}
+
+%%% تعیین استایل برای فهرست اختصارات
+\newglossarystyle{myAbbrlist}{%
+	%%% این دستور در حقیقت عملیات گروه‌بندی را انجام می‌دهد. بدین صورت که اختصارات‌ در بخش‌های جداگانه گروه‌بندی می‌شوند، 
+	%%% عنوان بخش همان نام حرفی است که هر اختصار در آن گروه با آن شروع شده است. 
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glsgroupskip}{\vskip 10mm}
+	\renewcommand*{\glsgroupheading}[1]{\begin{LTR} \subsection*{\glsgetgrouptitle{##1}} \end{LTR}}
+	%%% در این دستور نحوه نمایش اختصارات می‌آید. در این جا حالت کوچک اختصار در سمت چپ و حالت بزرگ در سمت راست قرار داده شده است، و بین آن با نقطه پر می‌شود. 
+	\renewcommand*{\glossentry}[2]{\noindent\glsentrytext{##1}\dotfill\space \Glsentrylong{##1}
+		
+	}
+	%%% تغییر نام محیط abbreviation به فهرست اختصارات
+	%\renewcommand*{\acronymname}{\rl{فهرست اختصارات}}
+	\renewcommand*{\acronymname}
+	{\begin{flushright}{\rl{{\mytitle{فهرست اختصارات}}}}\end{flushright}}
+}
+
+%%% برای اجرا xindy بر روی فایل .tex و تولید واژه‌نامه‌ها و فهرست اختصارات و فهرست نمادها یکسری  فایل تعریف شده است.‌ Latex داده های مربوط به واژه نامه و .. را در این 
+%%%  فایل‌ها نگهداری می‌کند. مهم‌ترین option‌ این قسمت این است که 
+%%% عنوان واژه‌نامه‌ها و یا فهرست اختصارات و یا فهرست نمادها را می‌توانید در این‌جا مشخص کنید. 
+%%% در این جا عباراتی مثل glg، gls، glo و ... پسوند فایل‌هایی است که برای xindy بکار می‌روند. 
+\newglossary[glg]{english}{gls}{glo}{واژه‌نامه انگلیسی به فارسی}
+\newglossary[blg]{persian}{bls}{blo}{واژه‌نامه فارسی به انگلیسی}
+\makeglossaries
+\glsdisablehyper
+%%% تعاریف مربوط به تولید واژه نامه و فهرست اختصارات و فهرست نمادها
+%%%  در این فایل یکسری دستورات عمومی برای وارد کردن واژه‌نامه آمده است.
+%%%  به دلیل این‌که قرار است این دستورات پایه‌ای را بازنویسی کنیم در این‌جا تعریف می‌کنیم. 
+\let\oldgls\gls
+\let\oldglspl\glspl
+
+\makeatletter
+\renewrobustcmd*{\gls}{\@ifstar\@msgls\@mgls}
+\newcommand*{\@mgls}[1] {\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\oldgls{#1}\glsuseri{f-#1}}{\lr{\oldgls{#1}}}}
+\newcommand*{\@msgls}[1]{\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\glstext{#1}\glsuseri{f-#1}}{\lr{\glsentryname{#1}}}}
+
+\renewrobustcmd*{\glspl}{\@ifstar\@msglspl\@mglspl}
+\newcommand*{\@mglspl}[1] {\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\oldglspl{#1}\glsuseri{f-#1}}{\oldglspl{#1}}}
+\newcommand*{\@msglspl}[1]{\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\glsplural{#1}\glsuseri{f-#1}}{\glsentryplural{#1}}}
+\makeatother
+
+\newcommand{\newword}[4]{
+	\newglossaryentry{#1}     {type={english},name={\lr{#2}},plural={#4},text={#3},description={}}
+	\newglossaryentry{f-#1} {type={persian},name={#3},text={\lr{#2}},description={}}
+}
+
+%%% بر طبق این دستور، در اولین باری که واژه مورد نظر از واژه‌نامه وارد شود، پاورقی زده می‌شود. 
+\defglsentryfmt[english]{\glsgenentryfmt\ifglsused{\glslabel}{}{\LTRfootnote{\glsentryname{\glslabel}}}}
+
+%%% بر طبق این دستور، در اولین باری که واژه مورد نظر از فهرست اختصارات وارد شود، پاورقی زده می‌شود. 
+\defglsentryfmt[acronym]{\glsentryname{\glslabel}\ifglsused{\glslabel}{}{\LTRfootnote{\glsentrydesc{\glslabel}}}}
+
+
+%%%% ===== دستور برای قرار دادن فهرست اختصارات =====%%%% 
+
+\newcommand{\printabbreviation}{
+	\cleardoublepage
+	\phantomsection
+	\baselineskip=0.75cm
+	%% با این دستور عنوان فهرست اختصارات به فهرست مطالب اضافه می‌شود. 
+	\addcontentsline{toc}{chapter}{فهرست اختصارات}
+	\setglossarystyle{myAbbrlist}
+	\begin{LTR}
+		\Oldprintglossary[type=acronym]	
+	\end{LTR}
+	\clearpage
+}%
+
+\newcommand{\printacronyms}{\printabbreviation}
+%%% در این جا محیط هر دو واژه نامه را باز تعریف کرده ایم، تا اولا مشکل قرار دادن صفحه اضافی را حل کنیم، ثانیا عنوان واژه نامه ها را با دستور addcontentlist وارد فهرست مطالب کرده ایم.
+\let\Oldprintglossary\printglossary
+\renewcommand{\printglossary}{
+	\let\appendix\relax
+	%% تنظیم کننده فاصله بین خطوط در این قسمت
+	\clearpage
+	\phantomsection
+	%% این دستور موجب این می‌شود که واژه‌نامه‌ها در  حالت دو ستونی نوشته شود. 
+	\twocolumn{}
+	%\onecolumn{}
+	%% با این دستور عنوان واژه‌نامه به فهرست مطالب اضافه می‌شود. 
+	\addcontentsline{toc}{chapter}{واژه نامه انگلیسی به فارسی}
+	\setglossarystyle{myEntoFa}
+	\Oldprintglossary[type=english]
+	
+	\clearpage
+	\phantomsection
+	%% با این دستور عنوان واژه‌نامه به فهرست مطالب اضافه می‌شود. 
+	\addcontentsline{toc}{chapter}{واژه نامه فارسی به انگلیسی}
+	\setglossarystyle{myFaToEn}
+	\Oldprintglossary[type=persian]
+	%\onecolumn{}
+	\twocolumn{}
+}
+%%==================================%% 
+
+%تنظیمات فونت
+\SepMark{-}
+%تنظیمات فاصله‌ی بین خطوط
+\linespread{1.5}
+% 
+%تنظیمات فونت برای تتیر فصول
+\titleformat{\chapter}
+{\fontsize{20pt}{17}\Btitr\bfseries}
+{\thechapter}{1em}{}
+
+%تنظیمات فونت برای تتیر بخش‌ها
+\titleformat{\section}
+{\fontsize{18pt}{15}\Btitr\bfseries}
+{\thesection}{1em}{}
+
+%تنظیمات فونت برای تتیر زیربخش‌ها
+\titleformat{\subsection}
+{\fontsize{16pt}{13}\bfseries}
+{\thesubsection}{1em}{}
+\newcommand{\bsubsection}[1]{{\Btitr{\subsection{#1}}}}
+%تنظیمات فونت برای زیر زیر بخش‌ها
+\titleformat{\subsubsection}
+{\fontsize{14pt}{11}\Btitr\bfseries}
+{\thesubsubsection}{1em}{}
+
+%تنظیمات مربوط به قضایا
+\newtheoremstyle{definitionBold}%                % Name
+{}%                                     % Space above
+{}%                                     % Space below
+{}%                                     % Body font
+{}%                                     % Indent amount
+{\bfseries}%                            % Theorem head font
+{:}%                                    % Punctuation after theorem head
+{ }%                                    % Space after theorem head, ' ', or \newline
+{}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{definitionBold}
+\newtheorem{definition}{تعریف}
+\numberwithin{definition}{chapter}
+\newtheorem{theorem}{قضیه}
+\numberwithin{theorem}{chapter}
+\newtheorem{proposition}{گزاره}
+\numberwithin{proposition}{chapter}
+\newtheorem{corollary}{نتیجه}
+\numberwithin{corollary}{chapter}
+\newtheorem{lemma}{لم}
+\numberwithin{lemma}{chapter}
+\newtheorem{example}{مثال}
+\numberwithin{example}{chapter}
+\newtheorem{proofs}{اثبات}
+\numberwithin{proofs}{chapter}
+
+%تنظیمات مربوط به محیط برنامه‌ها
+\definecolor{textblue}{rgb}{.2,.2,.7}
+\definecolor{textred}{rgb}{0.54,0,0}
+\definecolor{textgreen}{rgb}{0,0.43,0}
+
+\lstset{language=Python, 
+	numbers=left, 
+	numberstyle=\footnotesize\ttfamily	, 
+	stepnumber=1,
+	numbersep=5pt, 
+	tabsize=4,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{textblue},
+	commentstyle=\bfseries\color{textred},   
+	stringstyle=\bfseries\color{textgreen},
+	frame=none,                    
+	columns=fullflexible,
+	keepspaces=true,
+	xleftmargin=20pt,
+	showstringspaces = true}
+\tcbuselibrary{theorems}
+
+
+%تنظیمات مربوط به شماره‌گذاری معادلات، تصاویر و جداول
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+%تنظیمات مربوط به عمق شماره‌دهی در فهرست مطالب 
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%-------setting commands-------%
+\renewcommand\cfttoctitlefont{\fontsize{20pt}{17}\Btitr\bfseries}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+\renewcommand\cftloftitlefont{\fontsize{20pt}{17}\Btitr\bfseries}
+\renewcommand\cftafterloftitle{\hfill\mbox{}}
+
+\renewcommand\cftlottitlefont{\fontsize{20pt}{17}\Btitr\bfseries}
+\renewcommand\cftafterlottitle{\hfill\mbox{}}
+
+
+\newcommand{\mytitle}[1]{\fontsize{20pt}{17}\Btitr\bfseries #1}
+\newcommand{\mysection}[1]{\fontsize{16pt}{13}\Btitr\bfseries #1}
+\newcommand{\mysubsection}[1]{\fontsize{18pt}{15}\Btitr\bfseries #1}
+
+\newcommand\persiangloss[2]{#1\hfill\lr{#2}\\}
+\newcommand\persiantopersiangloss[2]{#1\hfill #2}
+\newcommand\latintolatingloss[2]{\lr{#1}\hfill\lr{#2}\\}
+
+%-------commands-------%
+\newcommand{\sgn}{sgn}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\ang}{ang}
+\newcommand{\mtext}[1]{\text{[#1]} \,} 
+\newcommand{\x}[1]{x^{(#1)}}
+\newcommand{\y}[1]{y^{(#1)}}
+\newcommand{\z}[1]{z_{#1}}
+\newcommand{\diag}[1]{diag{\left(  #1 \right) }}
+\newcommand{\om}[1]{#1\textit{اُم}}
+% -- table of contents/list of figures/list of tables--%
+\renewcommand{\contentsname}{فهرست مطالب}
+\renewcommand{\cftaftertoctitle}{\\\persiantopersiangloss{{\mysection{عنوان}}}{{\mysection{صفحه}}}
+	\\\rule{\linewidth}{1pt}\vspace{1 mm}}
+
+\renewcommand{\cftafterloftitle}{\\
+	{\mysection{عنوان}}\hspace{12.4cm}{\mysection{صفحه}}
+	\\\rule{\linewidth}{1pt}\vspace{1 mm}}
+
+\renewcommand{\cftafterlottitle}{\\
+	{\mysection{عنوان}}\hspace{12.4cm}{\mysection{صفحه}}
+	\\\rule{\linewidth}{1pt}\vspace{1 mm}}
+
+% --- float environment for programs---%
+\floatstyle{boxed}
+\newfloat{program}{h}{ipynb}
+\floatname{program}{برنامه}
+\numberwithin{program}{chapter}
+% --------- lists-------------%
+\renewcommand{\listfigurename}{{\mytitle{فهرست تصاویر}}}
+\renewcommand{\listtablename}{{\mytitle{فهرست جداول}}}
+\renewcommand{\bibname}{{\mytitle{فهرست مراجع }}}
+\newcommand{\printbib}{
+	\addcontentsline{toc}{chapter}{فهرست مراجع}
+	\bibliography{references}}
+
+%مسیر تصاویر و برنامه‌ها 
+\graphicspath{{./images/}}
+\lstset{inputpath= {./programs/}}
+
+%تنظیمات مربوط به لیست‌های شماره‌دار 
+\setlist[enumerate]{label=\arabic*-, leftmargin=2\parindent}
+\newlist{contract}{enumerate}{3}
+\setlist[contract]{label*=\arabic*-, leftmargin=2\parindent}
+\setlistdepth{3} 
+% یک دستور برای ارجاع دهی با پرانتز 
+\newcommand\pref[1]{(\ref{#1})}
+% یک دستور برای رنگ کردن چندین جمله 
+\newcommand{\colorit}[2]{{\leavevmode\color{#1}#2}}
+% این دستور امکان شکسته شدن خطوط معادلات را می‌دهد. 
+\allowdisplaybreaks
+
+ 
+ 

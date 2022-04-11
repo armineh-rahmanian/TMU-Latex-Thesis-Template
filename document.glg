@@ -1,0 +1,16 @@
+;; This logfile was generated automatically by `xindy'
+;; at 06.02.2022  02:08:36
+;; Indexstyle: "C:\\THESIS\\Temp\\try out_2\\try out\\zPKQxU4GtA", Rawindex: "C:\\THESIS\\Temp\\try out_2\\try out\\KVONE4nWzP", Output: "document.gls"
+
+
+Building indexentry-tree:
+Hierdepth of index is :TREE
+
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+
+Forming letter-groups:
+Letter-group: "¯°¯ª¯¤³¦¢´ª¯¨ §¶¯¤µª°¯" -> "N"
+Letter-group: "¯°¯¥¦¤³¦¢´ª¯¨ §¶¯¤µª°¯" -> "N"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "¯°¯¥¦¤³¦¢´ª¯¨ §¶¯¤µª°¯" -> "N"

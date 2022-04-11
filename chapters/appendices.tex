@@ -1,0 +1,44 @@
+\clearpage 
+\lhead{ }
+\appendix
+	
+\chapter{ ایجاد پیوست} \label{create appendix}
+	
+	برای ایجاد پیوست وارد فولدر 
+\lr{chapters} 
+	بشوید و فایل 
+\lr{appendices.tex}
+	را باز کنید. توجه داشته باشید که برای ایجاد پیوست حتما در ابتدای فایل دستورات زیر را بکار ببرید (البته اینجا از قبل نوشته شده است). 
+	
+\begin{latin}
+	\begin{verbatim}
+		\begin{appendices}
+			\chapter{<chapter name 1>}
+			\chapter{<chapter name 2>}
+		\end{appendices}
+	\end{verbatim}
+\end{latin} 
+	
+\chapter{شخصی‌سازی پیوست} \label{option appendix}
+	
+	برای ایجاد سر‌فصل به نام دلخواه برای پیوست‌ها در فهرست مطالب باید از بسته‌ی 
+	\begin{latin}
+		\begin{verbatim}
+			\package[toc]{appendix}
+		\end{verbatim}
+	\end{latin} 
+	استفاده کنید و اسم مورد نظر برای سرفصل پیوست‌ را با دستور زیر در فایل
+	\lr{commands} 
+	اعمال کنید. 
+	
+	\begin{latin}
+		\begin{verbatim}
+			\renewcommand{\appendixtocname}{<name>}
+		\end{verbatim}
+	\end{latin} 
+	
+	برای اطلاعات بیشتر حتما به توضیحات 
+	\href{https://ctan.org/pkg/appendix?lang=en}
+	{بسته‌ی پیوست} 
+	مراجعه بفرمایید. 
+
